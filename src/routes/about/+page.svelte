@@ -2,7 +2,7 @@
 	import { onMount } from 'svelte';
 
 	const words: string[] = [
-		'Why this website?\n Because I love experimenting with cursors and figured others might want to test all the cursors in their cursor themes too.\n I hope you find it handy.'
+		'Why this website?\n Because I love experimenting with cursors and figured others might want to test all the cursors in their cursor themes too.\n I hope you find it handy. \u{1F600}'
 	];
 
 	let text: HTMLHeadingElement;

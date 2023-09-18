@@ -2,6 +2,8 @@
 	import { type PaginationSettings, Paginator } from '@skeletonlabs/skeleton';
 	let gridMediumScreenValue: number = 2;
 
+	//  TODO: make a server.ts, for mobile, and when users touch the buttons, show the cursors
+
 	const cursors = [
 		{
 			cssName: 'auto',
@@ -153,11 +155,15 @@
 		page: 0,
 		limit: 4,
 		size: cursors.length,
-		amounts: [2, 4, 6, 10]
+		amounts: [2, 4, 6, 10, 36]
 	} satisfies PaginationSettings;
 
 	const handleAmount = (amount: CustomEvent<number>) => {
-		gridMediumScreenValue = amount.detail;
+		if (amount.detail === 36) {
+			gridMediumScreenValue = 12;
+		} else {
+			gridMediumScreenValue = 2;
+		}
 	};
 
 	$: paginatedSource = cursors.slice(
@@ -169,7 +175,9 @@
 <!--  TODO: make the ui for desktop -->
 <div class="flex flex-col justify-center gap-6 items-center min-h-screen">
 	<div class="min-h-[400px] flex flex-col justify-center 2xl:min-h-[500px]">
-		<ul class="logo-cloud grid-cols-2 2xl:grid-cols-{gridMediumScreenValue} gap-4 w-auto px-2">
+		<ul
+			class="logo-cloud grid-cols-2 xl:grid-cols-{gridMediumScreenValue} xl:px-28 gap-4 w-auto px-2"
+		>
 			{#each paginatedSource as row}
 				<li
 					style="cursor: {row.cssName}"

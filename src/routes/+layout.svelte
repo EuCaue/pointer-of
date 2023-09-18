@@ -28,7 +28,7 @@
 			slotTrail="place-content-end"
 		>
 			<svelte:fragment slot="lead">
-				<button on:click={handleClick}>
+				<button on:click={handleClick} aria-label="Open Drawer Menu" title="Open Drawer Menu">
 					<MenuIcon size="32" />
 				</button>
 			</svelte:fragment>
