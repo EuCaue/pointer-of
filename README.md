@@ -11,11 +11,11 @@
 
 ## Getting Started
 
-To get started with **Pointer of**, simply visit our website at [Pointer of](https://pointerof-pn84xd3ds-eucaue.vercel.app).
+To get started with **Pointer of**, simply visit our website at [Pointer of](https://pointerof.vercel.app/).
 
 ## Usage
 
-1. Open your web browser and navigate to [Pointer of](https://pointerof-pn84xd3ds-eucaue.vercel.app).
+1. Open your web browser and navigate to [Pointer of](https://pointerof.vercel.app/).
 2. The website will automatically display your system's current cursor theme.
 3. Use the provided tools and options to explore different cursor styles and sizes.
 4. Enjoy previewing your cursor theme!
