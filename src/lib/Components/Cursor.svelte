@@ -172,7 +172,6 @@
 	);
 </script>
 
-<!--  TODO: make the ui for desktop -->
 <div class="flex flex-col justify-center gap-6 items-center min-h-screen">
 	<div class="min-h-[400px] flex flex-col justify-center 2xl:min-h-[500px]">
 		<ul

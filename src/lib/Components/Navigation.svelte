@@ -4,9 +4,7 @@
 	const drawerStore = getDrawerStore();
 
 	const handleCloseDrawer = () => {
-		console.log('before close');
 		drawerStore.close();
-		console.log('after close');
 	};
 </script>
 
@@ -26,6 +24,7 @@
 			>
 		</li>
 
+		<!--  TODO: for this rout, config for the grid, theme, maybe font? -->
 		<li class="list-option">
 			<a
 				class="block card card-hover p-4 md:w-auto"
