@@ -4,11 +4,7 @@ import { defineConfig } from 'vite';
 
 export default defineConfig({
 	plugins: [
-		sveltekit(),
-		purgeCss({
-			safelist: {
-				greedy: [/xl:grid-cols-12/]
-			}
-		})
+		purgeCss(),
+		sveltekit()
 	]
 });
