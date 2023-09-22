@@ -4,8 +4,8 @@
 	import { getDrawerStore } from '@skeletonlabs/skeleton';
 	import { initializeStores } from '@skeletonlabs/skeleton';
 	import Navigation from '$lib/Components/Navigation.svelte';
-	import '../app.postcss';
-	import '../theme.postcss';
+	import '../app.post.css';
+	import '../theme.post.css';
 	initializeStores();
 
 	const drawerStore = getDrawerStore();
