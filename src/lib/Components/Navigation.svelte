@@ -1,11 +1,22 @@
 <script>
 	import { getDrawerStore } from '@skeletonlabs/skeleton';
+	import { onDestroy, onMount } from 'svelte';
 	import { XIcon } from 'svelte-feather-icons';
 	const drawerStore = getDrawerStore();
 
 	const handleCloseDrawer = () => {
 		drawerStore.close();
 	};
+	onMount(() => {
+		document.querySelectorAll('a').forEach((el) => {
+			el.addEventListener('click', handleCloseDrawer);
+		});
+	});
+	onDestroy(() => {
+		document.querySelectorAll('a').forEach((el) => {
+			el.removeEventListener('click', handleCloseDrawer);
+		});
+	});
 </script>
 
 <nav class="list-nav">
@@ -14,7 +25,7 @@
 			<a
 				class="block card card-hover p-4 md:w-auto"
 				href="/"
-				on:click={handleCloseDrawer}>Home</a
+			>Home</a
 			>
 		</li>
 		<li class="list-option">
