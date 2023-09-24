@@ -2,6 +2,7 @@
 	import { type PaginationSettings, Paginator } from '@skeletonlabs/skeleton';
 	import cursors from '$lib/data/cursors';
 	let gridXLClass: string = 'xl:grid-cols-2';
+	let timeoutID: ReturnType<typeof setTimeout> | undefined;
 
 	let paginationSettings = {
 		page: 0,
@@ -23,10 +24,13 @@
 			currentTarget: EventTarget & HTMLLIElement;
 		}
 	) => {
+		if (timeoutID) return;
+
 		const hasCursor: Element | null = document.querySelector('#cursor');
 		if (hasCursor) {
 			hasCursor.remove();
 		}
+
 		const cursorName: string = e.currentTarget.style.cursor;
 		if (cursorName === 'none') return;
 		const touchCoordinates = {
@@ -65,9 +69,13 @@
 					on:touchstart={handleTouchStart}
 					on:touchend={() => {
 						const hasCursor = document.querySelector('#cursor');
-						setTimeout(() => {
-							if (hasCursor) hasCursor.remove();
-						}, 1000);
+						// NOTE: Check for a cursor in the DOM and ensure there are no timeouts in progress.
+						if (hasCursor && timeoutID === undefined) {
+							timeoutID = setTimeout(() => {
+								hasCursor.remove();
+							}, 1000);
+							timeoutID = undefined;
+						}
 					}}
 					class="logo-item px-4 rounded-none outline-none border border-primary-200"
 					title="This is how {row.displayName} looks like."
