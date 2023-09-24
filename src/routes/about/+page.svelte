@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
+	import { onDestroy, onMount } from 'svelte';
 
 	const words: string[] = [
 		'Why this website?\n Because I love experimenting with cursors and figured others might want to test all the cursors in their cursor themes too.\n I hope you find it handy. \u{1F600}'
@@ -8,8 +8,10 @@
 	let text: HTMLHeadingElement;
 	let wordIndex: number = 0;
 	let letterIndex: number = 0;
+	$: stopTypewriter = false;
 
 	const typewriter = (): void => {
+		if (stopTypewriter) return;
 		if (wordIndex < words.length) {
 			const currentWord = words[wordIndex];
 			if (letterIndex < currentWord.length) {
@@ -22,6 +24,10 @@
 
 	onMount(() => {
 		typewriter();
+	});
+
+	onDestroy(() => {
+		stopTypewriter = true;
 	});
 </script>
 
