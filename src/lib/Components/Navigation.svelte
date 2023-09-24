@@ -1,8 +1,31 @@
-<script>
+<script lang="ts">
+	import { page } from '$app/stores';
 	import { getDrawerStore } from '@skeletonlabs/skeleton';
 	import { onDestroy, onMount } from 'svelte';
 	import { XIcon } from 'svelte-feather-icons';
 	const drawerStore = getDrawerStore();
+	$: classesActive = (href: string) =>
+		href === $page.url.pathname ? '!variant-filled-primary' : '';
+
+	type Routes = {
+		routeName: string;
+		displayName: string;
+	};
+
+	const routes: Routes[] = [
+		{
+			routeName: '/',
+			displayName: 'Home'
+		},
+		{
+			routeName: '/about',
+			displayName: 'About'
+		},
+		{
+			routeName: '/settings',
+			displayName: 'Settings'
+		}
+	];
 
 	const handleCloseDrawer = () => {
 		drawerStore.close();
@@ -21,27 +44,16 @@
 
 <nav class="list-nav">
 	<ul class="w-30">
-		<li class="list-option">
-			<a
-				class="block card card-hover p-4 md:w-auto"
-				href="/"
-			>Home</a
-			>
-		</li>
-		<li class="list-option">
-			<a
-				class="block card card-hover p-4 md:w-auto"
-				href="/about">About</a
-			>
-		</li>
-
-		<!--  TODO: for this rout, config for the grid, theme, maybe font? -->
-		<li class="list-option">
-			<a
-				class="block card card-hover p-4 md:w-auto"
-				href="/settings">Settings</a
-			>
-		</li>
+		{#each routes as route}
+			<li class="list-option">
+				<a
+					href={route.routeName}
+					class="block card card-hover p4 md:w-auto {classesActive(route.routeName)}"
+				>
+					{route.displayName}
+				</a>
+			</li>
+		{/each}
 
 		<li class="fixed bottom-0 left-[15%] md:left-[10%] md:mt-4">
 			<button
