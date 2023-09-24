@@ -11,7 +11,6 @@
 	const drawerStore = getDrawerStore();
 
 	const handleClick = () => {
-		console.info('test here');
 		drawerStore.open();
 	};
 </script>
