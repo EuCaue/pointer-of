@@ -1,11 +1,16 @@
 <script lang="ts">
-	import { AppShell, AppBar, Drawer } from '@skeletonlabs/skeleton';
+	import { AppShell, AppBar, Drawer, setInitialClassState } from '@skeletonlabs/skeleton';
+	import { computePosition, autoUpdate, offset, shift, flip, arrow } from '@floating-ui/dom';
+	import { storePopup } from '@skeletonlabs/skeleton';
 	import { MenuIcon } from 'svelte-feather-icons';
 	import { getDrawerStore } from '@skeletonlabs/skeleton';
 	import { initializeStores } from '@skeletonlabs/skeleton';
 	import Navigation from '$lib/Components/Navigation.svelte';
 	import '../app.post.css';
 	import '../theme.post.css';
+	import { onMount } from 'svelte';
+
+	storePopup.set({ computePosition, autoUpdate, offset, shift, flip, arrow });
 	initializeStores();
 
 	const drawerStore = getDrawerStore();
@@ -13,6 +18,10 @@
 	const handleClick = () => {
 		drawerStore.open();
 	};
+
+	onMount(() => {
+		String(setInitialClassState());
+	});
 </script>
 
 <Drawer width="w-1/2 md:w-1/4">
@@ -27,7 +36,11 @@
 			slotTrail="place-content-end"
 		>
 			<svelte:fragment slot="lead">
-				<button on:click={handleClick} aria-label="Open Drawer Menu" title="Open Drawer Menu">
+				<button
+					on:click={handleClick}
+					aria-label="Open Drawer Menu"
+					title="Open Drawer Menu"
+				>
 					<MenuIcon size="32" />
 				</button>
 			</svelte:fragment>
@@ -49,3 +62,13 @@
 	<!-- <svelte:fragment slot="pageFooter">Page Footer</svelte:fragment> -->
 	<!-- <svelte:fragment slot="footer">Footer</svelte:fragment> -->
 </AppShell>
+
+<style>
+	/* :global(input, textarea, p, span) { */
+	/* 	cursor: url('/adwaita/text.png'), text !important; */
+	/* } */
+	/**/
+	/* :global(a, button) { */
+	/* 	cursor: url('/adwaita/pointer.png'), pointer !important; */
+	/* } */
+</style>

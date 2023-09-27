@@ -27,6 +27,7 @@
 		}
 	];
 
+
 	const handleCloseDrawer = () => {
 		drawerStore.close();
 	};
@@ -35,6 +36,7 @@
 			el.addEventListener('click', handleCloseDrawer);
 		});
 	});
+
 	onDestroy(() => {
 		document.querySelectorAll('a').forEach((el) => {
 			el.removeEventListener('click', handleCloseDrawer);
