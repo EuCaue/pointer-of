@@ -33,7 +33,7 @@
 
 <div class="min-h-screen flex justify-center items-center transition-all ease-in-out px-4 2xl:p-0">
 	<h1
-		class="h2 2xl:w-1/2 2xl:text-center typewriter transition-all card card-hover h-max p-4 font-normal after:ml-3 after:border-l-4 after:animate-caret border-secondary-500 border text-left"
+		class="h2 2xl:w-1/2 2xl:text-center transition-all card card-hover h-max p-4 font-normal after:ml-3 after:border-l-4 after:animate-caret variant-ringed border text-left"
 		bind:this={text}
 	>
 		{''}
