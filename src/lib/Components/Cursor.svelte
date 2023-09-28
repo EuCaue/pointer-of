@@ -76,10 +76,8 @@
 		) {
 			return `url(/${$customCursorTheme.cursorTheme}/${cssName}.gif), ${cssName}`;
 		}
-		console.log($customCursorTheme.isOn);
 
 		if ($customCursorTheme.isOn && !isTouchDevice) {
-			console.log('bomdia');
 			return `url(/${$customCursorTheme.cursorTheme}/${cssName}.png), ${cssName}`;
 		}
 

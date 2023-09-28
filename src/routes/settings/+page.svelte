@@ -29,7 +29,6 @@
 	): void => {
 		customCursorTheme.set({ cursorTheme: e.currentTarget.value, isOn: $customCursorTheme.isOn });
 	};
-	console.log($customCursorTheme.cursorTheme);
 
 	const handleChangeCustomTheme = (
 		e: Event & {
