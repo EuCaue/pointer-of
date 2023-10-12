@@ -2,7 +2,7 @@
 	import { AppShell, AppBar, Drawer, setInitialClassState } from '@skeletonlabs/skeleton';
 	import { computePosition, autoUpdate, offset, shift, flip, arrow } from '@floating-ui/dom';
 	import { storePopup } from '@skeletonlabs/skeleton';
-	import { MenuIcon } from 'svelte-feather-icons';
+	import { IconMenu2 } from '@tabler/icons-svelte';
 	import { getDrawerStore } from '@skeletonlabs/skeleton';
 	import { initializeStores } from '@skeletonlabs/skeleton';
 	import Navigation from '$lib/Components/Navigation.svelte';
@@ -41,7 +41,7 @@
 					aria-label="Open Drawer Menu"
 					title="Open Drawer Menu"
 				>
-					<MenuIcon size="32" />
+					<IconMenu2 size={32} />
 				</button>
 			</svelte:fragment>
 			<a

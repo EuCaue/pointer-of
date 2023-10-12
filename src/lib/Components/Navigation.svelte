@@ -2,7 +2,7 @@
 	import { page } from '$app/stores';
 	import { getDrawerStore } from '@skeletonlabs/skeleton';
 	import { onDestroy, onMount } from 'svelte';
-	import { XIcon } from 'svelte-feather-icons';
+	import { IconX } from '@tabler/icons-svelte';
 	const drawerStore = getDrawerStore();
 	$: classesActive = (href: string) =>
 		href === $page.url.pathname ? '!variant-filled-primary' : '';
@@ -26,7 +26,6 @@
 			displayName: 'Settings'
 		}
 	];
-
 
 	const handleCloseDrawer = () => {
 		drawerStore.close();
@@ -56,14 +55,5 @@
 				</a>
 			</li>
 		{/each}
-
-		<li class="fixed bottom-0 left-[15%] md:left-[10%] md:mt-4">
-			<button
-				class="btn btn-circle card card-hover"
-				on:click={handleCloseDrawer}
-			>
-				<XIcon size="32" />
-			</button>
-		</li>
 	</ul>
 </nav>

@@ -8,7 +8,7 @@
 		SlideToggle,
 		LightSwitch
 	} from '@skeletonlabs/skeleton';
-	import { ArrowDownIcon } from 'svelte-feather-icons';
+	import { IconArrowDown } from '@tabler/icons-svelte';
 
 	const popupCombobox: PopupSettings = {
 		event: 'focus-click',
@@ -73,7 +73,7 @@
 				use:popup={popupCombobox}
 			>
 				<span class="capitalize">{$customCursorTheme.cursorTheme}</span>
-				<span> <ArrowDownIcon /></span>
+				<span> <IconArrowDown /></span>
 			</button>
 
 			<div
