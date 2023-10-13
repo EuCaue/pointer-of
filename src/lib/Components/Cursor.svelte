@@ -130,13 +130,12 @@
 		<label class="w-9/12 mt-4 max-w-md relative">
 			<input
 				bind:value={searchInputValue}
-				class="input w-full"
+				class="input w-full pr-6"
 				type="search"
 				name="search-cursors"
 				placeholder={'Search... '}
 				on:keyup={handleSearchCursors}
 			/>
-
 			<IconSearch
 				size={28}
 				stroke={1}
